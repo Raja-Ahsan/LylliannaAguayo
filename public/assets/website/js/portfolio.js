@@ -1,0 +1,107 @@
+// Inlined from script.js
+const nav = document.getElementById('nav');
+if (nav) {
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+}
+
+const hamburger = document.querySelector('.nav__hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-menu__link, .mobile-menu__cta');
+
+if (hamburger && mobileMenu) {
+  const toggleMenu = (open) => {
+    hamburger.classList.toggle('open', open);
+    mobileMenu.classList.toggle('open', open);
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+    hamburger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  hamburger.addEventListener('click', () => {
+    toggleMenu(!mobileMenu.classList.contains('open'));
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => toggleMenu(false));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      toggleMenu(false);
+      hamburger.focus();
+    }
+  });
+}
+
+const revealElements = document.querySelectorAll('.reveal, .reveal--right');
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const siblings = Array.from(el.parentElement?.children || []);
+        const idx = siblings.indexOf(el);
+        const delay = idx > 0 ? idx * 80 : 0;
+        setTimeout(() => {
+          el.classList.add('is-visible');
+        }, delay);
+        revealObserver.unobserve(el);
+      }
+    });
+  },
+  { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+);
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+const statValues = document.querySelectorAll('.stat-card__value[data-target]');
+const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+
+const animateCounter = (el) => {
+  const target = parseInt(el.dataset.target, 10);
+  const duration = 1400;
+  const start = performance.now();
+
+  const tick = (now) => {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutExpo(progress);
+    el.textContent = Math.round(eased * target);
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target;
+  };
+
+  requestAnimationFrame(tick);
+};
+
+const counterObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.5 }
+);
+
+statValues.forEach(el => counterObserver.observe(el));
+
+document.querySelectorAll('.video-card__thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    const card = thumb.closest('.video-card');
+    const link = card?.querySelector('a[href]');
+    if (link) window.open(link.href, '_blank', 'noopener,noreferrer');
+  });
+  thumb.setAttribute('role', 'button');
+  thumb.setAttribute('tabindex', '0');
+  thumb.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      thumb.click();
+    }
+  });
+});
