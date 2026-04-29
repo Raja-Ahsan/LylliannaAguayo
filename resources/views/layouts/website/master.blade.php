@@ -10,10 +10,18 @@
         content="@yield('meta_description', 'Official recruitment portfolio of Lyllianna Aguayo — Libero/DS, Rio Hondo College. Class of 2027, GPA 3.20. First Team All-League, Second Team All-Conference.')">
     <title>@yield('title', 'Lyllianna Aguayo — Volleyball Recruitment Portfolio')</title>
     @php
-        $fav = $home_page_data['header_favicon'] ?? '';
+        $fav = trim($home_page_data['header_favicon'] ?? '');
     @endphp
-    @if (!empty($fav))
-        <link rel="icon" href="{{ asset('public/admin/assets/images/page/' . $fav) }}" type="image/png" sizes="32x32">
+    @if ($fav !== '')
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="{{ asset('public/admin/assets/images/page/' . $fav) }}">
+        <link rel="icon" href="{{ asset('public/admin/assets/images/page/' . $fav) }}" type="image/png"
+            sizes="32x32">
+    @else
+        {{-- Default tab / PWA icon: LA mark (matches nav fallback when no admin favicon) --}}
+        <link rel="icon" href="{{ asset('public/assets/website/favicon-la.svg') }}" type="image/svg+xml"
+            sizes="any">
+        <link rel="apple-touch-icon" href="{{ asset('public/assets/website/favicon-la.svg') }}">
     @endif
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

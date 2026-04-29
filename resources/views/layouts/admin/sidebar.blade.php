@@ -32,7 +32,7 @@
                 </li>
             @endcan  
           
-            @can('banner-list')
+            {{-- @can('banner-list')
                 <li class="treeview mt-2">
                     <a href="{{ route('banner.index') }}" class="{{ request()->is('banner') || request()->is('banner/create') || request()->is('banner/*/edit') ? 'active' : '' }}">
                         <i class="fa fa-picture-o"></i> <span>All Banners</span>
@@ -46,25 +46,25 @@
                         <i class="fa fa-tasks"></i> <span>Home Banner Slider</span>
                     </a>
                 </li>
-            @endcan  
+            @endcan --}}  
             
-            @can('testimonial-list')
+            {{-- @can('testimonial-list')
                 <li class="treeview mt-2">
                     <a href="{{ route('testimonial.index') }}" class="{{ request()->is('testimonial') || request()->is('testimonial/create') || request()->is('testimonial/*/edit') ? 'active' : '' }}">
                         <i class="fa fa-tasks"></i> <span>Testimonials</span>
                     </a>
                 </li>
-            @endcan  
+            @endcan   --}}
 
             
 
-            @can('shopcontact-list')
+            {{-- @can('shopcontact-list')
                 <li class="treeview mt-2">
                     <a href="{{ route('shopcontact.index') }}" class="{{ request()->is('shopcontact') || request()->is('shopcontact/create') || request()->is('shopcontact/*/edit') || request()->is('shopcontact/*') ? 'active' : '' }}">
                         <i class="fa fa-envelope"></i> <span>Shop & Contact Form</span>
                     </a>
                 </li>
-            @endcan
+            @endcan --}}
 
              
             <li class="treeview mt-2 {{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}" style="height: auto;">

@@ -3,99 +3,117 @@
 @section('content')
 @push('css')
 <style>
+	/* Portfolio theme (Lyllianna site): pink / orange / cream */
 	.contact-card {
 		background: #ffffff;
-		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-		border: 2px solid #e0e0e0;
+		border-radius: 16px;
+		box-shadow: 0 8px 24px rgba(236, 72, 153, 0.1);
+		border: 1px solid rgba(236, 72, 153, 0.15);
 		overflow: hidden;
 	}
 	.contact-header {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
-		color: #1a1a1a;
+		background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #ea580c 100%) !important;
+		color: #fff;
 		padding: 18px 30px;
-		border-radius: 12px 12px 0 0;
-		border-bottom: 3px solid #242424;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border-radius: 16px 16px 0 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 0 4px 16px rgba(236, 72, 153, 0.25);
 		text-align: center;
 	}
-	.contact-header h1 { margin: 0; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+	.contact-header h1 {
+		margin: 0;
+		font-size: 22px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		color: #fff;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+	}
 	.contact-stats {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 		gap: 20px;
 		padding: 25px 30px 0;
-		background: #f8f9fa;
+		background: #f5f3f0;
 		margin-bottom: 20px;
 	}
 	.contact-stats .stat-box {
 		background: #fff;
 		padding: 18px;
 		border-radius: 12px;
-		box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-		border: 2px solid #e0e0e0;
+		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.08);
+		border: 1px solid rgba(236, 72, 153, 0.12);
 		text-align: center;
 		margin-bottom: 20px;
 	}
-	.contact-stats .stat-box .num { font-size: 22px; font-weight: 700; color: #2c3e50; }
+	.contact-stats .stat-box .num {
+		font-size: 22px;
+		font-weight: 700;
+		background: linear-gradient(135deg, #ec4899, #fb923c);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
 	.contact-stats .stat-box .lbl { font-size: 13px; color: #6b7280; font-weight: 500; margin-top: 4px; }
 	.contact-search {
-		background: #f8f9fa;
+		background: #fafaf9;
 		padding: 20px 30px;
-		border-bottom: 2px solid #e0e0e0;
+		border: 1px solid rgba(236, 72, 153, 0.1);
 		margin: 0 30px 20px;
-		border-radius: 8px;
+		border-radius: 12px;
 	}
 	.contact-search .form-control {
-		border: 2px solid #e0e0e0;
-		border-radius: 8px; 
+		border: 1px solid rgba(236, 72, 153, 0.2);
+		border-radius: 10px;
 		font-size: 14px;
-		transition: all 0.3s ease;
+		transition: border-color 0.2s ease, box-shadow 0.2s ease;
 		background: #fff;
 	}
 	.contact-search .form-control:focus {
-		border-color: #EEB72D;
-		box-shadow: 0 0 0 3px rgba(238,183,45,0.2);
+		border-color: #ec4899;
+		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.18);
 		outline: none;
 	}
 	.contact-search .btn-filter {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
-		color: #1a1a1a !important;
-		border: 1px solid #242424;
+		background: #ec4899 !important;
+		color: #fff !important;
+		border: none;
 		padding: 10px 24px;
-		border-radius: 8px;
+		border-radius: 9999px;
 		font-weight: 600;
-		transition: all 0.3s ease;
+		transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+		box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
 	}
 	.contact-search .btn-filter:hover {
-		background: linear-gradient(135deg, #d4a020 0%, #EEB72D 100%) !important;
-		color: #1a1a1a !important;
-		box-shadow: 0 2px 8px rgba(238,183,45,0.4);
+		background: #f472b6 !important;
+		color: #fff !important;
+		box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+		transform: translateY(-1px);
 	}
 	.contact-search .btn-clear {
-		background: #6c757d;
+		background: #6b7280;
 		color: #fff !important;
 		padding: 10px 24px;
-		border-radius: 8px;
+		border-radius: 9999px;
 		font-weight: 600;
 		text-decoration: none;
 		display: inline-block;
 		border: none;
-		transition: all 0.3s ease;
+		transition: background 0.2s ease;
 	}
-	.contact-search .btn-clear:hover { background: #5a6268; color: #fff !important; }
-	.contact-body { padding: 15px 30px 25px; background: #f8f9fa; }
+	.contact-search .btn-clear:hover { background: #4b5563; color: #fff !important; }
+	.contact-body { padding: 15px 30px 25px; background: #f5f3f0; }
 	.contact-list-container .table-wrap {
 		background: #ffffff;
-		border-radius: 8px;
-		border: 2px solid #e0e0e0;
+		border-radius: 12px;
+		border: 1px solid rgba(236, 72, 153, 0.12);
 		overflow: hidden;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.06);
 	}
 	.contact-list-container .contact-list-table { margin: 0; }
 	.contact-list-container .contact-list-table thead tr {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
-		border-bottom: 2px solid #242424;
+		background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 100%) !important;
+		border-bottom: 1px solid rgba(236, 72, 153, 0.2);
 	}
 	.contact-list-container .contact-list-table thead th {
 		font-weight: 600;
@@ -108,14 +126,14 @@
 	}
 	.contact-list-container .contact-list-table tbody tr { transition: background 0.2s ease; }
 	.contact-list-container .contact-list-table tbody tr:hover {
-		background: rgba(238, 183, 45, 0.08);
+		background: rgba(236, 72, 153, 0.06);
 	}
 	.contact-list-container .contact-list-table tbody td {
 		padding: 12px;
 		vertical-align: middle;
 		font-size: 14px;
-		color: #2c3e50;
-		border-color: #e0e0e0;
+		color: #374151;
+		border-color: rgba(236, 72, 153, 0.1);
 	}
 	.contact-action-btns {
 		display: flex;
@@ -125,30 +143,31 @@
 		align-items: center;
 	}
 	.contact-list-container .btn-show {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
-		border: 1px solid #242424;
-		color: #1a1a1a !important;
+		background: #ec4899 !important;
+		border: none;
+		color: #fff !important;
 		font-weight: 600;
-		padding: 5px 12px;
-		border-radius: 6px;
+		padding: 5px 14px;
+		border-radius: 9999px;
 		font-size: 12px;
-		transition: all 0.3s ease;
+		transition: all 0.2s ease;
 		text-decoration: none !important;
 		display: inline-block;
 		white-space: nowrap;
+		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.3);
 	}
 	.contact-list-container .btn-show:hover {
-		background: linear-gradient(135deg, #d4a020 0%, #EEB72D 100%) !important;
-		color: #1a1a1a !important;
-		box-shadow: 0 2px 8px rgba(238,183,45,0.4);
+		background: #f472b6 !important;
+		color: #fff !important;
+		box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
 		transform: translateY(-1px);
 	}
 	.contact-list-container .btn-delete {
 		padding: 5px 12px;
-		border-radius: 6px;
+		border-radius: 9999px;
 		font-size: 12px;
 		font-weight: 600;
-		transition: all 0.3s ease;
+		transition: all 0.2s ease;
 		white-space: nowrap;
 	}
 	.contact-list-container .btn-delete:hover {
@@ -157,16 +176,18 @@
 	}
 	.contact-list-container .pagination-wrap {
 		padding: 16px;
-		background: #f8f9fa;
-		border-top: 2px solid #e0e0e0;
-		display: flex; 
+		background: #fafaf9;
+		border-top: 1px solid rgba(236, 72, 153, 0.12);
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
 	}
 	.contact-list-container .callout-success-custom {
-		background: #d4edda;
-		border: 2px solid #28a745;
-		border-radius: 8px;
+		background: #ecfdf5;
+		border: 1px solid #10b981;
+		border-radius: 10px;
 		padding: 12px 16px;
-		color: #155724;
+		color: #047857;
 		font-weight: 500;
 		margin-bottom: 20px;
 	}
@@ -187,7 +208,7 @@
 		<div class="contact-stats">
 			<div class="stat-box">
 				<div class="num">{{ $totalContacts ?? 0 }}</div>
-				<div class="lbl">Total Contacts</div>
+				<div class="lbl">Total Contact Me</div>
 			</div>
 		</div>
 
@@ -311,7 +332,7 @@ $(document).ready(function() {
 			text: "This contact will be deleted.",
 			icon: 'warning',
 			showCancelButton: true,
-			confirmButtonColor: '#EEB72D',
+			confirmButtonColor: '#ec4899',
 			cancelButtonColor: '#6c757d',
 			confirmButtonText: 'Yes, delete it!'
 		}).then((result) => {

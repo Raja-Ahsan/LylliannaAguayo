@@ -5,65 +5,74 @@
 <style>
 	.contact-detail-card {
 		background: #ffffff;
-		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-		border: 2px solid #e0e0e0;
+		border-radius: 16px;
+		box-shadow: 0 8px 24px rgba(236, 72, 153, 0.1);
+		border: 1px solid rgba(236, 72, 153, 0.15);
 		overflow: hidden;
 	}
 	.contact-detail-header {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
-		color: #1a1a1a;
+		background: linear-gradient(135deg, #ec4899 0%, #db2777 50%, #ea580c 100%) !important;
+		color: #fff;
 		padding: 18px 30px;
-		border-radius: 12px 12px 0 0;
-		border-bottom: 3px solid #242424;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border-radius: 16px 16px 0 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+		box-shadow: 0 4px 16px rgba(236, 72, 153, 0.25);
 		text-align: center;
 	}
-	.contact-detail-header h1 { margin: 0; font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+	.contact-detail-header h1 {
+		margin: 0;
+		font-size: 22px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+		color: #fff;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+	}
 	.contact-detail-body {
 		padding: 30px 40px;
-		background: #f8f9fa;
+		background: #f5f3f0;
 	}
 	.contact-detail-table {
 		background: #fff;
-		border-radius: 8px;
-		border: 2px solid #e0e0e0;
+		border-radius: 12px;
+		border: 1px solid rgba(236, 72, 153, 0.12);
 		overflow: hidden;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.06);
 	}
 	.contact-detail-table table { margin: 0; }
 	.contact-detail-table th {
 		width: 180px;
-		background: rgba(238, 183, 45, 0.12);
-		color: #2c3e50;
+		background: linear-gradient(135deg, rgba(253, 242, 248, 0.9), rgba(255, 247, 237, 0.95));
+		color: #1a1a1a;
 		font-weight: 600;
 		font-size: 14px;
 		padding: 14px 16px;
-		border: 1px solid #e0e0e0;
+		border: 1px solid rgba(236, 72, 153, 0.12);
 	}
 	.contact-detail-table td {
 		padding: 14px 16px;
 		font-size: 14px;
-		color: #2c3e50;
-		border: 1px solid #e0e0e0;
+		color: #374151;
+		border: 1px solid rgba(236, 72, 153, 0.1);
 	}
-	.contact-detail-table tr:hover td { background: rgba(238, 183, 45, 0.04); }
+	.contact-detail-table tr:hover td { background: rgba(236, 72, 153, 0.05); }
 	.btn-view-all {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
-		color: #1a1a1a !important;
-		border: 1px solid #242424;
+		background: #ec4899 !important;
+		color: #fff !important;
+		border: none;
 		padding: 10px 24px;
-		border-radius: 8px;
+		border-radius: 9999px;
 		font-weight: 600;
 		text-decoration: none !important;
 		display: inline-block;
-		transition: all 0.3s ease;
+		transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
 		margin-bottom: 20px;
+		box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
 	}
 	.btn-view-all:hover {
-		background: linear-gradient(135deg, #d4a020 0%, #EEB72D 100%) !important;
-		color: #1a1a1a !important;
-		box-shadow: 0 2px 8px rgba(238,183,45,0.4);
+		background: #f472b6 !important;
+		color: #fff !important;
+		box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
 		transform: translateY(-1px);
 	}
 </style>

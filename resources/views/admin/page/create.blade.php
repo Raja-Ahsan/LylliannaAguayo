@@ -3,25 +3,28 @@
 @section('content')
 @push('css')
 <style>
+	.page-admin { --pg-pink: #ec4899; --pg-pink-deep: #be185d; --pg-orange: #fb923c; --pg-cream: #f5f3f0; --pg-text: #1c1917; }
+
 	.page-form-container {
-		background: #ffffff;
+		background: #fff;
 		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 4px 24px rgba(236, 72, 153, 0.1);
+		border: 1px solid rgba(236, 72, 153, 0.12);
 		overflow: hidden;
 		margin: 20px 0;
 	}
 
 	.page-form-body {
-		padding: 0px 30px 40px;
-		background: #f8f9fa;
+		padding: 0 30px 40px;
+		background: var(--pg-cream);
 	}
 
 	.page-form-container .section-banner {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+		background: linear-gradient(135deg, var(--pg-pink) 0%, #f472b6 45%, var(--pg-orange) 100%) !important;
 		padding: 15px 20px;
 		margin: 0 -40px 25px -40px;
-		border-bottom: 3px solid #242424;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border-bottom: 2px solid rgba(190, 24, 93, 0.35);
+		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.18);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -32,15 +35,16 @@
 		margin: 0;
 		font-size: 18px;
 		font-weight: 600;
-		color: #242424;
+		color: #fff;
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 	}
 
 	.page-form-container .section-banner .btn {
-		background: #000000;
-		color: #242424;
-		border: 2px solid #242424;
+		background: #fff;
+		color: var(--pg-pink-deep);
+		border: 2px solid rgba(255, 255, 255, 0.95);
 		padding: 8px 24px;
 		border-radius: 25px;
 		font-size: 13px;
@@ -52,14 +56,15 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 	}
 
 	.page-form-container .section-banner .btn:hover {
-		background: #242424;
+		background: var(--pg-text);
 		color: #fff;
+		border-color: var(--pg-text);
 		transform: translateY(-2px);
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 4px 14px rgba(28, 25, 23, 0.2);
 	}
 
 	.page-form-container .section-banner .btn i {
@@ -74,31 +79,31 @@
 		display: block;
 		margin-bottom: 8px;
 		font-weight: 600;
-		color: #333;
+		color: #374151;
 		font-size: 14px;
 	}
 
 	.page-form-container .required {
-		color: #dc3545;
+		color: #dc2626;
 		margin-left: 3px;
 	}
 
 	.page-form-container .form-control {
-		border: 1px solid #ddd;
-		border-radius: 6px;
+		border: 1px solid #e7e5e4;
+		border-radius: 8px;
 		padding: 5px;
 		font-size: 14px;
 		transition: all 0.3s ease;
 	}
 
 	.page-form-container .form-control:focus {
-		border-color: #EEB72D;
-		box-shadow: 0 0 0 0.2rem rgba(238, 183, 45, 0.15);
+		border-color: rgba(236, 72, 153, 0.55);
+		box-shadow: 0 0 0 0.2rem rgba(236, 72, 153, 0.12);
 		outline: none;
 	}
 
 	.page-form-container .text-danger {
-		color: #dc3545;
+		color: #dc2626;
 		font-size: 13px;
 		margin-top: 5px;
 		display: block;
@@ -107,25 +112,26 @@
 	.page-form-container .action-section {
 		margin-top: 30px;
 		padding-top: 20px;
-		border-top: 1px solid #e0e0e0;
+		border-top: 1px solid rgba(236, 72, 153, 0.12);
 	}
 
 	.page-form-container .btn-submit {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%);
-		color: #242424;
+		background: linear-gradient(135deg, var(--pg-pink) 0%, var(--pg-orange) 100%);
+		color: #fff;
 		border: none;
 		padding: 12px 30px;
-		border-radius: 6px;
+		border-radius: 8px;
 		font-weight: 600;
 		font-size: 14px;
 		cursor: pointer;
 		transition: all 0.3s ease;
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 14px rgba(236, 72, 153, 0.25);
 	}
 
 	.page-form-container .btn-submit:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 4px 10px rgba(238, 183, 45, 0.3);
+		background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+		box-shadow: 0 6px 20px rgba(236, 72, 153, 0.35);
 	}
 
 	.page-form-container .btn-submit i {
@@ -134,7 +140,7 @@
 </style>
 @endpush
 
-<section class="content">
+<section class="content page-admin">
 	<div class="row">
 		<div class="col-md-12">
 			<form action="{{ route('page.store') }}" id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">

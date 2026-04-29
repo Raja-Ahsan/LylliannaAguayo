@@ -7,10 +7,12 @@
     <title>@yield('title')</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="csrf-token" id="token" content="{{ csrf_token() }}" />
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ asset('public/admin/assets/images/page') }}/{{ $home_page_data['header_favicon'] }}">
-    <link rel="icon" href="{{ asset('public/admin/assets/images/page') }}/{{ $home_page_data['header_favicon'] }}"
-        type="image/png" sizes="32x32">
+    @if (!empty($home_page_data['header_favicon']))
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="{{ asset('public/admin/assets/images/page/' . $home_page_data['header_favicon']) }}">
+        <link rel="icon" href="{{ asset('public/admin/assets/images/page/' . $home_page_data['header_favicon']) }}"
+            type="image/png" sizes="32x32">
+    @endif
     <link rel="stylesheet" href="{{ asset('public/admin/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/admin/assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/admin/assets/css/ionicons.min.css') }}">
@@ -40,7 +42,7 @@
         .skin-blue .main-sidebar,
         .content-header .content-header-right a,
         .content .form-horizontal .btn-success {
-            background-color: #000000!important;
+            /*  background-color: #000000!important; */
             /* background-image: url('{{ asset("public/assets/website/images/login.png") }}');
             background-size: cover;
             background-position: center; */
@@ -53,14 +55,8 @@
             display: flex !important;
             flex-direction: column !important;
         }
-        .content-header .content-header-right a,
-        .content .form-horizontal .btn-success {
-            border-color: #01277c !important;
-            font-weight: 700;
-        }
 
-        .sidebar-menu>li
-        {
+        .sidebar-menu>li {
             padding: 2px !important;
         }
 
@@ -72,96 +68,113 @@
             height: 80px;
         }
 
+        .skin-blue .main-sidebar .sidebar-menu>li>a,
+        .skin-blue .main-sidebar .treeview-menu>li>a {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .skin-blue .main-header .navbar .nav>li>a {
+            color: rgba(255, 255, 255, 0.92) !important;
+        }
+
+        .content a:not(.btn):not(.paginate_button) {
+            color: var(--admin-pink-deep) !important;
+        }
+
+        .content a:not(.btn):not(.paginate_button):hover {
+            color: #9d174d !important;
+        }
+
         a.btn.btn-primary.btn-sm:hover {
-            color: #000000 !important;
-            background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
+            border-color: rgba(236, 72, 153, 0.4) !important;
             font-weight: 700;
         }
 
         button.btn.btn-success.pull-left:hover {
-            color: #000000;
-            background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
+            border-color: rgba(236, 72, 153, 0.4) !important;
         }
 
         .content-header>h1,
         .content-header .content-header-left h1,
-        h3 {
-            color: #000000 !important;
+        .content-header h1 {
+            color: var(--admin-text) !important;
         }
 
-        .nav>li>a:hover {
-            background-color: #000000;
+        .content h3 {
+            color: var(--admin-text) !important;
+        }
 
+        .main-header .navbar .nav>li>a:hover,
+        .main-header .navbar .nav .open>a {
+            background-color: rgba(236, 72, 153, 0.18) !important;
         }
 
         .navbar-nav>.user-menu>.dropdown-menu>.user-footer {
-            background-color: #000000 !important;
+            background-color: var(--admin-shell) !important;
         }
 
         .navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default {
-            color: #000000 !important;
-            background-color: #EEB72D !important;
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
+            border: none !important;
             border-radius: 30px !important;
         }
 
         .navbar-nav>.user-menu>.dropdown-menu>.user-footer .btn-default:hover {
-            color: #EEB72D !important;
-            background-color: #000000 !important;
+            color: #fff !important;
+            background: linear-gradient(135deg, #db2777 0%, #ea580c 100%) !important;
             border-radius: 30px !important;
-            transition: all 0.3s ease-in-out !important;
-            box-shadow: 0px 0px 12px 3px rgb(254 153 1) !important;
+            transition: all 0.25s ease-in-out !important;
+            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.35) !important;
         }
 
         .box.box-info {
-            border-top-color: #EEB72D !important;
+            border-top-color: var(--admin-pink) !important;
         }
 
         .nav-tabs-custom>.nav-tabs>li.active {
-            border-top-color: #1a2204 !important;
+            border-top-color: var(--admin-pink-deep) !important;
         }
 
-
         a.active {
-            background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
-            color: #000000 !important;
+            background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
+            color: #fff !important;
             font-weight: 700;
-
         }
 
         .btn-active {
-            color: #000000 !important;
-            background-color: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%);
-            border-color: #d7b35d;
-            font-weight: 500;
-            transition: all 0.3s ease-in-out;
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
+            border-color: rgba(236, 72, 153, 0.45) !important;
+            font-weight: 600;
+            transition: all 0.25s ease-in-out;
         }
 
         .btn-active:hover {
-            color: #d7b35d !important;
-            background-color: #000000 !important;
-            border-color: #d7b35d;
-            font-weight: 500;
-            transition: all 0.3s ease-in-out;
+            color: #fff !important;
+            background: linear-gradient(135deg, #db2777 0%, #ea580c 100%) !important;
+            border-color: rgba(236, 72, 153, 0.55) !important;
+            box-shadow: 0 4px 14px rgba(236, 72, 153, 0.3);
         }
 
         .info-box {
             display: block;
             min-height: 90px;
-            background: #000000 !important;
+            background: var(--admin-shell) !important;
             width: 100%;
-            box-shadow: 10px 10px 10px 2px rgb(149 149 149);
-            border-radius: 2px;
+            box-shadow: 0 8px 24px rgba(28, 25, 23, 0.12);
+            border-radius: 8px;
             margin-bottom: 15px;
+            border: 1px solid rgba(236, 72, 153, 0.12);
         }
 
         .info-box:hover {
-            display: block;
-            min-height: 90px;
-            background: linear-gradient(180deg, #af0202 0%, #af0202 50%, #af0202 100%);
-            width: 100%;
-            box-shadow: 5px 5px 10px 0px rgb(181 181 181);
-            border-radius: 2px;
-            margin-bottom: 15px;
+            background: linear-gradient(135deg, #292524 0%, var(--admin-shell-soft) 100%) !important;
+            box-shadow: 0 10px 28px rgba(236, 72, 153, 0.15);
         }
 
         .info-box-content {
@@ -170,35 +183,31 @@
         }
 
         .info-box-icon {
-            background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+            background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
         }
 
         .info-box-text {
-            color: #d7b35d !important;
+            color: rgba(251, 146, 60, 0.95) !important;
         }
 
         .info-box-number {
-            color: #d7b35d !important;
+            color: #fce7f3 !important;
         }
 
         span.info-box-icon i {
-            color: #000000 !important;
+            color: #fff !important;
         }
 
         span.info-box-icon i:hover {
-            color: #efefef !important;
-        }
-
-        a {
-            color: #ffffff !important;
+            color: #fff7ed !important;
         }
 
         a.active.blk {
-            color: black !important;
+            color: #fff !important;
         }
 
         .skin-blue .sidebar-menu>li:hover>a {
-            background: linear-gradient(180deg, #af0202 0%, #af0202 50%, #af0202 100%);
+            background: rgba(236, 72, 153, 0.22) !important;
         }
 
         .skin-blue .sidebar-menu>li>.treeview-menu {
@@ -218,34 +227,33 @@
             font-size: 14px;
         }
 
-
         .pagination>.active>span {
             z-index: 3;
-            color: #000000;
-            background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
-            border-color: #d7b35d;
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--admin-pink) 0%, var(--admin-orange) 100%) !important;
+            border-color: rgba(236, 72, 153, 0.45);
         }
 
         .pagination>.active>span:hover {
             z-index: 3;
-            color: #000000;
-            background: linear-gradient(180deg, #af0202 0%, #af0202 50%, #af0202 100%);
-            border-color: #af0202;
+            color: #fff !important;
+            background: linear-gradient(135deg, #db2777 0%, #ea580c 100%) !important;
+            border-color: rgba(219, 39, 119, 0.55);
         }
 
         .pagination>li>a:hover {
             z-index: 2;
-            color: #ffffff !important;
-            background: linear-gradient(180deg, #af0202 0%, #af0202 50%, #af0202 100%);
-            border-color: #af0202;
+            color: #fff !important;
+            background: linear-gradient(135deg, var(--admin-pink-deep) 0%, #ea580c 100%);
+            border-color: rgba(236, 72, 153, 0.4);
         }
 
         .pagination>li>a {
-            background: #ffffff;
-            color: black !important;
+            background: #fff;
+            color: var(--admin-text) !important;
         }
 
-        /* this is for modal css in invoice create blade */
+        /* Modal (e.g. invoice create) */
         img.modal-image {
             width: 20%;
         }
@@ -254,16 +262,14 @@
             margin: 0;
             text-align: center;
             font-weight: 800;
+            color: var(--admin-text);
         }
 
         .modal-header {
             padding: 15px;
-            background-color: #daf3ff;
-            border-bottom: 2px solid #ff9901;
+            background: linear-gradient(180deg, #fff 0%, var(--admin-cream) 100%);
+            border-bottom: 2px solid rgba(236, 72, 153, 0.35);
         }
- 
-
-        /* end css for modal */
     </style>
 
     @stack('css')
