@@ -70,7 +70,7 @@
             <li class="treeview mt-2 {{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}" style="height: auto;">
                 <a href="#" class="{{ (request()->is('video') || request()->is('video/create') || request()->is('video/*/edit') || request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') || request()->is('photogallery') || request()->is('photogallery/*') ) ? 'active' : '' }}">
                     <i class="fa fa-files-o"></i>
-                    <span>Music & Media</span>
+                    <span>Highlight Videos</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
@@ -86,20 +86,20 @@
                     </li>
                     @endcan
 
-                    @can('audio-list')
+                   {{--  @can('audio-list')
                     <li class="treeview mt-2">
                         <a href="{{ route('audio.index') }}" class="{{ request()->is('audio') || request()->is('audio/create') || request()->is('audio/*/edit') || request()->is('audio/*') ? 'active' : '' }}">
                             <i class="fa fa-code-fork"></i> <span>Audio</span>
                         </a>
                     </li>
-                    @endcan
-                    @can('photogallery-list')
+                    @endcan --}}
+                    {{-- @can('photogallery-list')
                     <li class="treeview mt-2">
                         <a href="{{ route('photogallery.index') }}" class="{{ request()->is('photogallery') || request()->is('photogallery/*') ? 'active' : '' }}">
                             <i class="fa fa-camera"></i> <span>Photo Gallery</span>
                         </a>
                     </li>
-                    @endcan
+                    @endcan --}}
                 </ul>
             </li>
             @can('contactus-list')

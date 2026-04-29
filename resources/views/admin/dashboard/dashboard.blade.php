@@ -321,8 +321,8 @@
 
         <div class="pg-dash__banner">
             <div class="pg-dash__welcome">
-                <h1 class="pg-dash__welcome-title">Welcome Admin</h1>
-                <p class="pg-dash__welcome-subtitle">Manage your website</p>
+                <h1 class="pg-dash__welcome-title">Welcome <br>Lyllianna Aguayo</h1>
+                <p class="pg-dash__welcome-subtitle">Manage your portfolio</p>
             </div>
         </div>
 

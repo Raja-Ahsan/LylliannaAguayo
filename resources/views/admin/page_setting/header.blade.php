@@ -1,27 +1,30 @@
 @extends('layouts.admin.app')
-@section('content')
 @section('title', $page_title)
+@section('content')
 @push('css')
 <style>
+	.page-admin { --pg-pink: #ec4899; --pg-pink-deep: #be185d; --pg-orange: #fb923c; --pg-cream: #f5f3f0; --pg-text: #1c1917; }
+
 	.header-settings-container {
-		background: #ffffff;
+		background: #fff;
 		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 4px 24px rgba(236, 72, 153, 0.1);
+		border: 1px solid rgba(236, 72, 153, 0.12);
 		overflow: hidden;
 		margin: 20px 0;
 	}
 
 	.header-settings-body {
-		padding: 0px 30px 40px;
-		background: #f8f9fa;
+		padding: 0 30px 40px;
+		background: var(--pg-cream);
 	}
 
 	.section-banner {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+		background: linear-gradient(135deg, var(--pg-pink) 0%, #f472b6 45%, var(--pg-orange) 100%) !important;
 		padding: 15px 20px;
 		margin: 0 -40px 25px -40px;
-		border-bottom: 3px solid #242424;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border-bottom: 2px solid rgba(190, 24, 93, 0.35);
+		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.18);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -32,15 +35,16 @@
 		margin: 0;
 		font-size: 18px;
 		font-weight: 600;
-		color: #242424;
+		color: #fff;
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 	}
 
 	.section-banner .btn {
-		background: #000000;
-		color: #242424;
-		border: 2px solid #242424;
+		background: #fff;
+		color: var(--pg-pink-deep);
+		border: 2px solid rgba(255, 255, 255, 0.95);
 		padding: 8px 24px;
 		border-radius: 25px;
 		font-size: 13px;
@@ -52,24 +56,35 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 	}
 
 	.section-banner .btn:hover {
-		background: #242424;
+		background: var(--pg-text);
 		color: #fff;
+		border-color: var(--pg-text);
 		transform: translateY(-2px);
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 4px 14px rgba(28, 25, 23, 0.2);
 	}
 
 	.section-banner .btn i {
 		font-size: 12px;
 	}
 
+	.header-settings-alert {
+		background: #ecfdf5;
+		border: 1px solid #6ee7b7;
+		border-radius: 8px;
+		padding: 12px 16px;
+		color: #14532d;
+		font-weight: 500;
+		margin-bottom: 20px;
+	}
+
 	.section-block {
 		margin-bottom: 40px;
 		padding-bottom: 30px;
-		border-bottom: 2px solid #e0e0e0;
+		border-bottom: 1px solid rgba(236, 72, 153, 0.12);
 	}
 
 	.section-block:last-of-type {
@@ -79,19 +94,19 @@
 	}
 
 	.section-heading {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+		background: linear-gradient(90deg, #fce7f3 0%, #ffedd5 100%);
 		padding: 12px 20px;
 		margin: 0 0 25px 0;
 		border-radius: 8px;
-		border: 2px solid #242424;
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+		border: 1px solid rgba(236, 72, 153, 0.2);
+		box-shadow: 0 2px 8px rgba(236, 72, 153, 0.08);
 	}
 
 	.section-heading h4 {
 		margin: 0;
 		font-size: 15px;
 		font-weight: 700;
-		color: #242424;
+		color: var(--pg-text);
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
 		display: flex;
@@ -101,6 +116,7 @@
 
 	.section-heading h4 i {
 		font-size: 16px;
+		color: var(--pg-pink-deep);
 	}
 
 	.header-settings-container .form-group {
@@ -109,48 +125,55 @@
 
 	.header-settings-container .form-group label {
 		font-weight: 600;
-		color: #2c3e50;
+		color: #374151;
 		margin-bottom: 10px;
 		font-size: 14px;
 		display: block;
 	}
 
 	.header-settings-container .form-control {
-		border: 2px solid #e0e0e0;
+		border: 2px solid #e7e5e4;
 		border-radius: 8px;
 		padding: 5px;
 		font-size: 14px;
 		line-height: 1.6;
 		transition: all 0.3s ease;
-		background: #ffffff;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		background: #fff;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 		width: 100%;
 	}
 
 	.header-settings-container .form-control:focus {
-		border-color: #EEB72D;
-		box-shadow: 0 0 0 3px rgba(238, 183, 45, 0.2);
+		border-color: rgba(236, 72, 153, 0.55);
+		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.12);
 		outline: none;
 	}
 
 	.header-settings-container .form-control:hover {
-		border-color: #bdbdbd;
+		border-color: #d6d3d1;
+	}
+
+	.header-settings-container .form-hint {
+		color: #6b7280;
+		display: block;
+		margin-top: 5px;
+		font-size: 13px;
 	}
 
 	.existing-photo {
 		border-radius: 8px;
-		border: 2px solid #e0e0e0;
+		border: 1px solid rgba(236, 72, 153, 0.15);
 		object-fit: cover;
 		margin-top: 12px;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 2px 10px rgba(236, 72, 153, 0.1);
 	}
 
 	.image-preview-container {
 		margin-top: 15px;
 		padding: 15px;
-		background: #ffffff;
+		background: #fff;
 		border-radius: 8px;
-		border: 2px dashed #e0e0e0;
+		border: 2px dashed rgba(236, 72, 153, 0.25);
 		display: inline-block;
 	}
 
@@ -158,18 +181,18 @@
 		text-align: center;
 		padding-top: 30px;
 		margin-top: 30px;
-		border-top: 2px solid #e0e0e0;
+		border-top: 1px solid rgba(236, 72, 153, 0.12);
 	}
 
 	.btn-update {
-		background: linear-gradient(135deg, #EEB72D 0%, #d4a020 100%);
+		background: linear-gradient(135deg, var(--pg-pink) 0%, var(--pg-orange) 100%);
 		border: none;
 		border-radius: 8px;
 		padding: 12px 40px;
 		font-size: 16px;
 		font-weight: 600;
-		color: #1a1a1a;
-		box-shadow: 0 4px 15px rgba(238, 183, 45, 0.35);
+		color: #fff;
+		box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3);
 		transition: all 0.3s ease;
 		cursor: pointer;
 		text-transform: uppercase;
@@ -178,9 +201,9 @@
 
 	.btn-update:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(238, 183, 45, 0.45);
-		background: linear-gradient(135deg, #d4a020 0%, #EEB72D 100%);
-		color: #1a1a1a;
+		box-shadow: 0 6px 22px rgba(236, 72, 153, 0.4);
+		background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+		color: #fff;
 	}
 
 	.btn-update:active {
@@ -190,7 +213,7 @@
 	.social-links-grid {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 0px;
+		gap: 0;
 	}
 
 	.social-links-grid .form-group {
@@ -210,8 +233,7 @@
 </style>
 @endpush
 
-
-<section class="content">
+<section class="content page-admin">
 	<div class="row">
 		<div class="col-md-12">
 			<form action="{{ route('page_setting.store') }}" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
@@ -227,21 +249,21 @@
 						</div>
 
 						@if (session('message'))
-						<div style="background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 16px; color: #155724; font-weight: 500; margin-bottom: 20px;">
-							{{ session('message') }}
-						</div>
+						<div class="header-settings-alert">{{ session('message') }}</div>
 						@endif
 
 						<div class="section-block">
-							<h4><i class="fa fa-image"></i> Branding Assets</h4>
+							<div class="section-heading">
+								<h4><i class="fa fa-image"></i> Branding Assets</h4>
+							</div>
 
 							<div class="form-group">
 								<label for="header_favicon">Favicon</label>
 								<input type="file" id="header_favicon" name="header_favicon" class="form-control" accept="image/*">
-								<small style="color: #6c757d; display: block; margin-top: 5px;">Recommended size: 32x32 pixels or 16x16 pixels</small>
+								<small class="form-hint">Recommended size: 32×32 or 16×16 pixels (PNG, ICO, or SVG)</small>
 								@if (isset($page_data['header_favicon']))
 								<div class="image-preview-container">
-									<img src="{{ asset('/public/admin/assets/images/page/' . $page_data['header_favicon']) }}" class="existing-photo" style="height:50px;" alt="Current Favicon">
+									<img src="{{ asset('public/admin/assets/images/page/' . $page_data['header_favicon']) }}" class="existing-photo" style="height:50px;" alt="Current Favicon">
 								</div>
 								@endif
 							</div>
@@ -249,33 +271,37 @@
 							<div class="form-group">
 								<label for="header_logo">Logo</label>
 								<input type="file" id="header_logo" name="header_logo" class="form-control" accept="image/*">
-								<small style="color: #6c757d; display: block; margin-top: 5px;">Recommended: PNG with transparent background</small>
+								<small class="form-hint">Recommended: PNG with transparent background</small>
 								@if (isset($page_data['header_logo']))
 								<div class="image-preview-container">
-									<img src="{{ asset('/public/admin/assets/images/page/' . $page_data['header_logo']) }}" class="existing-photo" style="height:100px;" alt="Current Logo">
+									<img src="{{ asset('public/admin/assets/images/page/' . $page_data['header_logo']) }}" class="existing-photo" style="height:100px;" alt="Current Logo">
 								</div>
 								@endif
 							</div>
 						</div>
- 
-						<h4><i class="fa fa-share-alt"></i> Social Media Links</h4>
+
+						<div class="section-block">
+							<div class="section-heading">
+								<h4><i class="fa fa-share-alt"></i> Social Media Links</h4>
+							</div>
 
 						<div class="social-links-grid">
 							<div class="form-group">
-								<label for="footer_facebook"><i class="fa fa-facebook"></i> Facebook Link</label>
-								<input type="url" id="footer_facebook" name="footer_facebook" class="form-control" value="{{ isset($page_data['footer_facebook']) ? $page_data['footer_facebook'] : '' }}" placeholder="https://facebook.com/yourpage">
+								<label for="footer_facebook"><i class="fa fa-instagram"></i> Instagram</label>
+								<input type="url" id="footer_instagram" name="footer_instagram" class="form-control" value="{{ isset($page_data['footer_instagram']) ? $page_data['footer_instagram'] : '' }}" placeholder="https://instagram.com/yourpage">
 							</div>
 
 							<div class="form-group">
-								<label for="footer_linkedin"><i class="fa fa-linkedin"></i> LinkedIn Link</label>
-								<input type="url" id="footer_linkedin" name="footer_linkedin" class="form-control" value="{{ isset($page_data['footer_linkedin']) ? $page_data['footer_linkedin'] : '' }}" placeholder="https://linkedin.com/in/yourprofile">
+								<label for="footer_fieldlevel"><i class="fa fa-futbol-o"></i> Field Level</label>
+								<input type="url" id="footer_fieldlevel" name="footer_fieldlevel" class="form-control" value="{{ isset($page_data['footer_fieldlevel']) ? $page_data['footer_fieldlevel'] : '' }}" placeholder="https://fieldlevel.com/yourprofile">
 							</div>
 
 							<div class="form-group">
 								<label for="footer_twitter"><i class="fa fa-twitter"></i> X (Twitter) Link</label>
 								<input type="url" id="footer_twitter" name="footer_twitter" class="form-control" value="{{ isset($page_data['footer_twitter']) ? $page_data['footer_twitter'] : '' }}" placeholder="https://twitter.com/yourhandle">
 							</div>
-						</div> 
+						</div>
+						</div>
 
 						<div class="action-section">
 							<button type="submit" class="btn-update" name="form_header">

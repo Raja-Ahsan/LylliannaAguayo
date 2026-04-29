@@ -3,35 +3,39 @@
 @section('content')
 @push('css')
 <style>
+	.page-admin { --pg-pink: #ec4899; --pg-pink-deep: #be185d; --pg-orange: #fb923c; --pg-cream: #f5f3f0; --pg-text: #1c1917; }
+
 	.video-form-container {
-		background: #ffffff;
+		background: #fff;
 		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 4px 24px rgba(236, 72, 153, 0.1);
+		border: 1px solid rgba(236, 72, 153, 0.12);
 		overflow: hidden;
 		margin: 20px 0;
 	}
 
 	.video-form-body {
-		padding: 0px 30px 40px;
-		background: #f8f9fa;
+		padding: 0 30px 40px;
+		background: var(--pg-cream);
 	}
 
 	.video-form-container .section-banner {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+		background: linear-gradient(135deg, var(--pg-pink) 0%, #f472b6 45%, var(--pg-orange) 100%) !important;
 		padding: 15px 20px;
 		margin: 0 -40px 25px -40px;
 		text-align: center;
-		border-bottom: 3px solid #242424;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border-bottom: 2px solid rgba(190, 24, 93, 0.35);
+		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.18);
 	}
 
 	.video-form-container .section-banner h3 {
 		margin: 0;
 		font-size: 18px;
 		font-weight: 600;
-		color: #EEB72D;
+		color: #fff;
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 	}
 
 	.video-form-container .form-group {
@@ -40,36 +44,36 @@
 
 	.video-form-container .form-group label {
 		font-weight: 600;
-		color: #2c3e50;
+		color: #374151;
 		margin-bottom: 10px;
 		font-size: 14px;
 		display: block;
 	}
 
 	.video-form-container .form-control {
-		border: 2px solid #e0e0e0;
+		border: 2px solid #e7e5e4;
 		border-radius: 8px;
 		padding: 12px 14px;
 		font-size: 14px;
 		line-height: 1.6;
 		transition: all 0.3s ease;
-		background: #ffffff;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		background: #fff;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 		width: 100%;
 	}
 
 	.video-form-container .form-control:focus {
-		border-color: #EEB72D;
-		box-shadow: 0 0 0 3px rgba(238, 183, 45, 0.2);
+		border-color: rgba(236, 72, 153, 0.55);
+		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.12);
 		outline: none;
 	}
 
 	.video-form-container .form-control:hover {
-		border-color: #bdbdbd;
+		border-color: #d6d3d1;
 	}
 
 	.video-form-container .form-control.error {
-		border-color: #dc3545;
+		border-color: #dc2626;
 	}
 
 	.video-form-container .text-danger {
@@ -82,18 +86,18 @@
 		text-align: center;
 		padding-top: 30px;
 		margin-top: 30px;
-		border-top: 2px solid #e0e0e0;
+		border-top: 1px solid rgba(236, 72, 153, 0.12);
 	}
 
 	.video-form-container .btn-submit {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+		background: linear-gradient(135deg, var(--pg-pink) 0%, var(--pg-orange) 100%);
 		border: none;
 		border-radius: 8px;
 		padding: 12px 40px;
 		font-size: 16px;
 		font-weight: 600;
-		color: #1a1a1a;
-		box-shadow: 0 4px 15px rgba(238, 183, 45, 0.35);
+		color: #fff;
+		box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3);
 		transition: all 0.3s ease;
 		cursor: pointer;
 		text-transform: uppercase;
@@ -102,9 +106,9 @@
 
 	.video-form-container .btn-submit:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(238, 183, 45, 0.45);
-		background: linear-gradient(135deg, #d4a020 0%, #EEB72D 100%);
-		color: #1a1a1a;
+		box-shadow: 0 6px 22px rgba(236, 72, 153, 0.4);
+		background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+		color: #fff;
 	}
 
 	.video-form-container .btn-submit:active {
@@ -112,7 +116,7 @@
 	}
 
 	.video-form-container label .required {
-		color: #dc3545;
+		color: #dc2626;
 	}
 
 	@media (max-width: 768px) {
@@ -134,7 +138,7 @@
 	@endcan
 </section>
 
-<section class="content">
+<section class="content page-admin">
 	<div class="row">
 		<div class="col-md-12">
 			<form action="{{ route('video.store') }}" id="regform" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
