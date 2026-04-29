@@ -7,11 +7,28 @@
     <title>@yield('title')</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="csrf-token" id="token" content="{{ csrf_token() }}" />
-    @if (!empty($home_page_data['header_favicon']))
+    @php
+        $adminFav = trim($home_page_data['header_favicon'] ?? '');
+        $adminFavExt = $adminFav !== '' ? strtolower(pathinfo($adminFav, PATHINFO_EXTENSION)) : '';
+        $adminFavMime = match ($adminFavExt) {
+            'png' => 'image/png',
+            'jpg', 'jpeg' => 'image/jpeg',
+            'gif' => 'image/gif',
+            'ico' => 'image/x-icon',
+            'svg' => 'image/svg+xml',
+            'webp' => 'image/webp',
+            default => '',
+        };
+    @endphp
+    @if ($adminFav !== '')
         <link rel="apple-touch-icon" sizes="180x180"
-            href="{{ asset('public/admin/assets/images/page/' . $home_page_data['header_favicon']) }}">
-        <link rel="icon" href="{{ asset('public/admin/assets/images/page/' . $home_page_data['header_favicon']) }}"
-            type="image/png" sizes="32x32">
+            href="{{ asset('public/admin/assets/images/page/' . $adminFav) }}">
+        <link rel="icon" href="{{ asset('public/admin/assets/images/page/' . $adminFav) }}"
+            @if ($adminFavMime !== '') type="{{ $adminFavMime }}" @endif sizes="32x32">
+    @else
+        <link rel="icon" href="{{ asset('public/assets/website/favicon-la.svg') }}" type="image/svg+xml"
+            sizes="any">
+        <link rel="apple-touch-icon" href="{{ asset('public/assets/website/favicon-la.svg') }}">
     @endif
     <link rel="stylesheet" href="{{ asset('public/admin/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/admin/assets/css/font-awesome.min.css') }}">
