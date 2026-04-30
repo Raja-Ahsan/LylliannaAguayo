@@ -279,9 +279,9 @@
 									<td>{{ $homesliders->firstItem()+$key }}.</td>
 									<td>
 										@if($homeSlider->image)
-										<img src="{{ asset('public/admin/assets/images/HomeSlider/'.$homeSlider->image) }}" alt="{{ $homeSlider->heading }}">
+										<img src="{{ asset('admin/assets/images/HomeSlider/'.$homeSlider->image) }}" alt="{{ $homeSlider->heading }}">
 										@else
-										<img src="{{ asset('public/admin/assets/images/HomeSlider/no-photo1.jpg') }}" alt="No Image">
+										<img src="{{ asset('admin/assets/images/HomeSlider/no-photo1.jpg') }}" alt="No Image">
 										@endif
 									</td>
 									<td>{!! $homeSlider->heading !!}</td>

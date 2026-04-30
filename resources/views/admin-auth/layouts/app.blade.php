@@ -9,24 +9,24 @@
         $authFav = $home_page_data['header_favicon'] ?? '';
     @endphp
     @if (!empty($authFav))
-        <link rel="icon" href="{{ asset('public/admin/assets/images/page/' . $authFav) }}" type="image/png"
+        <link rel="icon" href="{{ asset('admin/assets/images/page/' . $authFav) }}" type="image/png"
             sizes="16x16">
     @endif
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/ionicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/datepicker3.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/dataTables.bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/AdminLTE.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/_all-skins.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/datepicker3.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/dataTables.bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/AdminLTE.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/_all-skins.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/toastr.min.css') }}">
     <style>
         /* Portfolio-aligned admin auth (Lyllianna site theme) */
         :root {
@@ -260,23 +260,23 @@
 
     @yield('content')
 
-    <script src="{{ asset('public/admin/assets/js/jquery-2.2.3.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/dataTables.bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/jquery.inputmask.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/jquery.inputmask.date.extensions.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/jquery.inputmask.extensions.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/moment.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/icheck.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/fastclick.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/jquery.slimscroll.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/app.min.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/demo.js') }}"></script>
-    <script src="{{ asset('public/admin/assets/js/toastr.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery-2.2.3.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/dataTables.bootstrap.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery.inputmask.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery.inputmask.date.extensions.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery.inputmask.extensions.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/moment.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/icheck.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/fastclick.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/app.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/demo.js') }}"></script>
+    <script src="{{ asset('admin/assets/js/toastr.min.js') }}"></script>
     <script>
         @if (Session::has('message'))
             toastr.options = {

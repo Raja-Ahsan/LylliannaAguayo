@@ -175,7 +175,7 @@
 								<span class="text-danger">{{ $message }}</span>
 							@enderror
 							<div class="image-preview-section">
-								<img id="banner_preview" src="{{ asset('public/admin/assets/images/HomeSlider/'.$homeSlider->image) }}" alt="Current Image">
+								<img id="banner_preview" src="{{ asset('admin/assets/images/HomeSlider/'.$homeSlider->image) }}" alt="Current Image">
 							</div>
 						</div>
 

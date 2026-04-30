@@ -3,7 +3,7 @@
 <title>{{ $weblinks->name }}</title>
 
 <head>
-    <link rel="icon" href="{{ asset('public/admin/assets/images/page') }}/{{ $home_page_data['header_favicon'] }}"
+    <link rel="icon" href="{{ asset('admin/assets/images/page') }}/{{ $home_page_data['header_favicon'] }}"
         type="image/png" sizes="16x16">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -21,9 +21,9 @@
 
 <body>
     @if ($weblinks->image)
-        <img src="{{ asset('public/admin/assets/images/weblinks/' . $weblinks->image) }}" alt="">
+        <img src="{{ asset('admin/assets/images/weblinks/' . $weblinks->image) }}" alt="">
     @else
-        <img src="{{ asset('public/admin/assets/images/weblinks/no-photo1.jpg') }}">
+        <img src="{{ asset('admin/assets/images/weblinks/no-photo1.jpg') }}">
     @endif
 </body>
 

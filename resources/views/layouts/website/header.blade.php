@@ -18,7 +18,7 @@
         <a href="{{ url('/') }}" class="nav__logo" aria-label="Lyllianna Aguayo home">
             @if (!empty($home_page_data['header_logo']))
                 <img class="nav__logo-img"
-                    src="{{ asset('public/admin/assets/images/page/' . $home_page_data['header_logo']) }}"
+                    src="{{ asset('admin/assets/images/page/' . $home_page_data['header_logo']) }}"
                     alt="Lyllianna Aguayo">
             @else
                 <span class="nav__logo-mark">LA</span>

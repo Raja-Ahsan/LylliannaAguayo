@@ -263,7 +263,7 @@
 								<small class="form-hint">Recommended size: 32×32 or 16×16 pixels (PNG, ICO, or SVG)</small>
 								@if (isset($page_data['header_favicon']))
 								<div class="image-preview-container">
-									<img src="{{ asset('public/admin/assets/images/page/' . $page_data['header_favicon']) }}" class="existing-photo" style="height:50px;" alt="Current Favicon">
+									<img src="{{ asset('admin/assets/images/page/' . $page_data['header_favicon']) }}" class="existing-photo" style="height:50px;" alt="Current Favicon">
 								</div>
 								@endif
 							</div>
@@ -274,7 +274,7 @@
 								<small class="form-hint">Recommended: PNG with transparent background</small>
 								@if (isset($page_data['header_logo']))
 								<div class="image-preview-container">
-									<img src="{{ asset('public/admin/assets/images/page/' . $page_data['header_logo']) }}" class="existing-photo" style="height:100px;" alt="Current Logo">
+									<img src="{{ asset('admin/assets/images/page/' . $page_data['header_logo']) }}" class="existing-photo" style="height:100px;" alt="Current Logo">
 								</div>
 								@endif
 							</div>

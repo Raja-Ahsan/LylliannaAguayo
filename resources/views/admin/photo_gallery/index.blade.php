@@ -261,7 +261,7 @@
 				<div id="body" class="photos-grid">
 				@forelse($photoGalleries as $photoGallery)
 				@php
-					$imgUrl = $photoGallery->image ? asset('public/admin/assets/website/photo_gallery/' . $photoGallery->image) : asset('public/admin/assets/images/default.jpg');
+					$imgUrl = $photoGallery->image ? asset('admin/assets/website/photo_gallery/' . $photoGallery->image) : asset('admin/assets/images/default.jpg');
 					$ext = strtolower(pathinfo($photoGallery->image ?? '', PATHINFO_EXTENSION));
 					$isTiff = ($ext === 'tif' || $ext === 'tiff');
 				@endphp

@@ -285,9 +285,9 @@
 									<td>{{ $testimonials->firstItem()+$key }}.</td>
 									<td>
 										@if($testimonial->image)
-										<img src="{{ asset('public/admin/assets/images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
+										<img src="{{ asset('admin/assets/images/testimonials/'.$testimonial->image) }}" alt="{{ $testimonial->name }}">
 										@else
-										<img src="{{ asset('public/admin/assets/images/testimonials/no-photo1.jpg') }}" alt="No Image">
+										<img src="{{ asset('admin/assets/images/testimonials/no-photo1.jpg') }}" alt="No Image">
 										@endif
 									</td>
 									<td>{!! $testimonial->name !!}</td>

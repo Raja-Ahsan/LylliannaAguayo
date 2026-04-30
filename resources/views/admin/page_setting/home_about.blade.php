@@ -336,7 +336,7 @@
 								<input type="file" id="home_about_image" name="home_about_image" class="form-control" accept="image/*">
 								@if(isset($page_data['home_about_image']) && $page_data['home_about_image'])
 									<div style="margin-top: 12px;">
-										<img src="{{ asset('public/admin/assets/images/page/' . $page_data['home_about_image']) }}" class="existing-photo" alt="Current" style="height: 100px;">
+										<img src="{{ asset('admin/assets/images/page/' . $page_data['home_about_image']) }}" class="existing-photo" alt="Current" style="height: 100px;">
 									</div>
 								@endif
 							</div>

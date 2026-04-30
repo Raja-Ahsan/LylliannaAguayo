@@ -14,19 +14,19 @@
     @endphp
     @if ($fav !== '')
         <link rel="apple-touch-icon" sizes="180x180"
-            href="{{ asset('public/admin/assets/images/page/' . $fav) }}">
-        <link rel="icon" href="{{ asset('public/admin/assets/images/page/' . $fav) }}" type="image/png"
+            href="{{ asset('admin/assets/images/page/' . $fav) }}">
+        <link rel="icon" href="{{ asset('admin/assets/images/page/' . $fav) }}" type="image/png"
             sizes="32x32">
     @else
         {{-- Default tab / PWA icon: LA mark (matches nav fallback when no admin favicon) --}}
-        <link rel="icon" href="{{ asset('public/assets/website/favicon-la.svg') }}" type="image/svg+xml"
+        <link rel="icon" href="{{ asset('assets/website/favicon-la.svg') }}" type="image/svg+xml"
             sizes="any">
-        <link rel="apple-touch-icon" href="{{ asset('public/assets/website/favicon-la.svg') }}">
+        <link rel="apple-touch-icon" href="{{ asset('assets/website/favicon-la.svg') }}">
     @endif
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('public/assets/website/css/portfolio.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/website/css/portfolio.css') }}">
     @stack('styles')
 </head>
 
@@ -39,7 +39,7 @@
 
     @include('layouts.website.footer')
 
-    <script src="{{ asset('public/assets/website/js/portfolio.js') }}" defer></script>
+    <script src="{{ asset('assets/website/js/portfolio.js') }}" defer></script>
     @stack('js')
 </body>
 
