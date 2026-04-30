@@ -19,7 +19,7 @@
                 <a href="{{ url('/') }}" class="footer__brand-mark" aria-label="Lyllianna Aguayo home">
                     @if (!empty($home_page_data['header_logo']))
                         <img class="footer__logo-custom"
-                            src="{{ asset('public/admin/assets/images/page/' . $home_page_data['header_logo']) }}"
+                            src="{{ asset('admin/assets/images/page/' . $home_page_data['header_logo']) }}"
                             alt="Lyllianna Aguayo">
                     @else
                         <span class="footer__logo-mark">LA</span>

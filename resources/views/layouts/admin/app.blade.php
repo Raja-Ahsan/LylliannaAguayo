@@ -22,28 +22,28 @@
     @endphp
     @if ($adminFav !== '')
         <link rel="apple-touch-icon" sizes="180x180"
-            href="{{ asset('public/admin/assets/images/page/' . $adminFav) }}">
-        <link rel="icon" href="{{ asset('public/admin/assets/images/page/' . $adminFav) }}"
+            href="{{ asset('admin/assets/images/page/' . $adminFav) }}">
+        <link rel="icon" href="{{ asset('admin/assets/images/page/' . $adminFav) }}"
             @if ($adminFavMime !== '') type="{{ $adminFavMime }}" @endif sizes="32x32">
     @else
-        <link rel="icon" href="{{ asset('public/assets/website/favicon-la.svg') }}" type="image/svg+xml"
+        <link rel="icon" href="{{ asset('assets/website/favicon-la.svg') }}" type="image/svg+xml"
             sizes="any">
-        <link rel="apple-touch-icon" href="{{ asset('public/assets/website/favicon-la.svg') }}">
+        <link rel="apple-touch-icon" href="{{ asset('assets/website/favicon-la.svg') }}">
     @endif
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/ionicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/datepicker3.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/select2.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/dataTables.bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/jquery.fancybox.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/AdminLTE.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/_all-skins.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/summernote.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/admin/assets/css/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/ionicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/datepicker3.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/dataTables.bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/jquery.fancybox.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/AdminLTE.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/_all-skins.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/summernote.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/toastr.min.css') }}">
 
     <style>
         label {
@@ -60,7 +60,7 @@
         .content-header .content-header-right a,
         .content .form-horizontal .btn-success {
             /*  background-color: #000000!important; */
-            /* background-image: url('{{ asset("public/assets/website/images/login.png") }}');
+            /* background-image: url('{{ asset("assets/website/images/login.png") }}');
             background-size: cover;
             background-position: center; */
         }
@@ -307,31 +307,31 @@
 </body>
 
 <!-- Script -->
-<script src="{{ asset('public/admin/assets/js/jquery-2.2.4.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/dataTables.bootstrap.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/select2.full.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jscolor.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.inputmask.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.inputmask.date.extensions.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.inputmask.extensions.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/moment.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/bootstrap-datepicker.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/icheck.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/fastclick.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.sparkline.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.slimscroll.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.fancybox.pack.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/app.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/summernote.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/demo.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/tinymce/tinymce.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery-2.2.4.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/select2.full.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jscolor.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.inputmask.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.inputmask.date.extensions.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.inputmask.extensions.js') }}"></script>
+<script src="{{ asset('admin/assets/js/moment.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('admin/assets/js/icheck.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/fastclick.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.slimscroll.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.fancybox.pack.js') }}"></script>
+<script src="{{ asset('admin/assets/js/app.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/summernote.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/demo.js') }}"></script>
+<script src="{{ asset('admin/assets/js/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/jquery.validate.min.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="{{ asset('public/admin/assets/js/toastr.min.js') }}"></script>
-<script src="{{ asset('public/admin/assets/js/search.js') }}"></script>
+<script src="{{ asset('admin/assets/js/toastr.min.js') }}"></script>
+<script src="{{ asset('admin/assets/js/search.js') }}"></script>
 
 <!-- Optional Bootstrap JS and dependencies -->
 

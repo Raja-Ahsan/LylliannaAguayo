@@ -2,7 +2,7 @@
     <a href="{{ route('dashboard') }}" class="header-logo-link" aria-label="Lyllianna Aguayo home">
         @if (!empty($home_page_data['header_logo']))
             <img id="header-logo" class="admin-header-logo-img"
-                src="{{ asset('public/admin/assets/images/page/' . $home_page_data['header_logo']) }}"
+                src="{{ asset('admin/assets/images/page/' . $home_page_data['header_logo']) }}"
                 alt="Lyllianna Aguayo">
         @else
             <span class="admin-header-logo-fallback">
@@ -25,9 +25,9 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         @if (Auth::user()->image)
-                            <img src="{{ asset('public/admin/assets/img') }}/{{ Auth::user()->image }}" class="user-image" alt="user photo">
+                            <img src="{{ asset('admin/assets/img') }}/{{ Auth::user()->image }}" class="user-image" alt="user photo">
                         @else
-                            <img src="{{ asset('public/admin/assets/img/dummy-user.png') }}" class="user-image" alt="user photo">
+                            <img src="{{ asset('admin/assets/img/dummy-user.png') }}" class="user-image" alt="user photo">
                         @endif
                         <span class="hidden-xs"></span>
                     </a>

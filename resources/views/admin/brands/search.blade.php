@@ -3,9 +3,9 @@
     <td>{{ $models->firstItem() + $key }}.</td>
     <td>
         @if($model->image)
-        <img src="{{ asset('public/admin/assets/images/brands/'.$model->image) }}" alt="" style="width:60px;">
+        <img src="{{ asset('admin/assets/images/brands/'.$model->image) }}" alt="" style="width:60px;">
         @else
-        <img src="{{ asset('public/admin/assets/images/default.jpg') }}" style="width:60px;">
+        <img src="{{ asset('admin/assets/images/default.jpg') }}" style="width:60px;">
         @endif
     </td>
     <td>{!! \Illuminate\Support\Str::limit($model->name ?? 'N/A', 50) !!}</td>

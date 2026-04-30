@@ -139,7 +139,7 @@
 							<div class="current-image-wrap {{ ($model->image && in_array(strtolower(pathinfo($model->image ?? '', PATHINFO_EXTENSION)), ['tif','tiff'])) ? 'tiff-loading-wrap' : '' }}" id="preview_wrap" style="{{ $model->image ? '' : 'display:none;' }}">
 								<p class="text-muted mb-1" style="font-size: 13px;">{{ $model->image ? 'Current photo:' : 'Preview:' }}</p>
 								@php
-									$currentImgUrl = $model->image ? asset('public/admin/assets/website/photo_gallery/' . $model->image) : '';
+									$currentImgUrl = $model->image ? asset('admin/assets/website/photo_gallery/' . $model->image) : '';
 									$ext = strtolower(pathinfo($model->image ?? '', PATHINFO_EXTENSION));
 									$currentIsTiff = ($ext === 'tif' || $ext === 'tiff');
 								@endphp

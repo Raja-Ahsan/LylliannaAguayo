@@ -280,9 +280,9 @@
 									<td>{{ $banners->firstItem()+$key }}.</td>
 									<td>
 										@if($banner->image)
-										<img src="{{ asset('public/admin/assets/images/banner/'.$banner->image) }}" alt="{{ $banner->heading }}">
+										<img src="{{ asset('admin/assets/images/banner/'.$banner->image) }}" alt="{{ $banner->heading }}">
 										@else
-										<img src="{{ asset('public/admin/assets/images/default.jpg') }}" alt="No Image">
+										<img src="{{ asset('admin/assets/images/default.jpg') }}" alt="No Image">
 										@endif
 									</td>
 									<td>{{ $banner->slug ? ucfirst(str_replace('-', ' ', $banner->slug)) : '—' }}</td>

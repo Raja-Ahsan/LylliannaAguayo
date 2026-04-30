@@ -168,7 +168,7 @@
 								<span class="text-danger">{{ $message }}</span>
 							@enderror
 							<div class="image-preview-section">
-								<img id="banner_preview" src="{{ asset('public/admin/assets/images/default.jpg') }}" alt="Image Preview">
+								<img id="banner_preview" src="{{ asset('admin/assets/images/default.jpg') }}" alt="Image Preview">
 							</div>
 						</div>
 
