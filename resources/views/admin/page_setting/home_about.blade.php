@@ -3,25 +3,28 @@
 @section('title', $page_title)
 @push('css')
 <style>
+	.page-admin { --pg-pink: #ec4899; --pg-pink-deep: #be185d; --pg-orange: #fb923c; --pg-cream: #f5f3f0; --pg-text: #1c1917; }
+
 	.home-about-container {
-		background: #ffffff;
+		background: #fff;
 		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+		box-shadow: 0 4px 24px rgba(236, 72, 153, 0.1);
+		border: 1px solid rgba(236, 72, 153, 0.12);
 		overflow: hidden;
 		margin: 20px 0;
 	}
 
 	.home-about-body {
-		padding: 0px 30px 40px;
-		background: #f8f9fa;
+		padding: 0 30px 40px;
+		background: var(--pg-cream);
 	}
 
 	.section-banner {
-		background: linear-gradient(180deg, #EEB72D 0%, #FFE59F 49.52%, #EEB72D 100%) !important;
+		background: linear-gradient(135deg, var(--pg-pink) 0%, #f472b6 45%, var(--pg-orange) 100%) !important;
 		padding: 15px 20px;
 		margin: 0 -40px 25px -40px;
-		border-bottom: 3px solid #242424;
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		border-bottom: 2px solid rgba(190, 24, 93, 0.35);
+		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.18);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -32,15 +35,16 @@
 		margin: 0;
 		font-size: 18px;
 		font-weight: 600;
-		color: #242424;
+		color: #fff;
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 	}
 
 	.section-banner .btn {
-		background: #000000;
-		color: #242424;
-		border: 2px solid #242424;
+		background: #fff;
+		color: var(--pg-pink-deep);
+		border: 2px solid rgba(255, 255, 255, 0.95);
 		padding: 8px 24px;
 		border-radius: 25px;
 		font-size: 13px;
@@ -52,14 +56,15 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 6px;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 	}
 
 	.section-banner .btn:hover {
-		background: #242424;
+		background: var(--pg-text);
 		color: #fff;
+		border-color: var(--pg-text);
 		transform: translateY(-2px);
-		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 4px 14px rgba(28, 25, 23, 0.2);
 	}
 
 	.section-banner .btn i {
@@ -69,12 +74,23 @@
 	.section-block {
 		margin-bottom: 40px;
 		padding-bottom: 30px;
-		border-bottom: 2px solid #e0e0e0;
+		border-bottom: 1px solid rgba(236, 72, 153, 0.12);
 	}
 
 	.section-block:last-of-type {
 		border-bottom: none;
 		margin-bottom: 30px;
+		padding-bottom: 0;
+	}
+
+	.home-about-alert {
+		background: #ecfdf5;
+		border: 1px solid #6ee7b7;
+		border-radius: 8px;
+		padding: 12px 16px;
+		color: #14532d;
+		font-weight: 500;
+		margin-bottom: 20px;
 	}
 
 	.home-about-container .form-group {
@@ -83,20 +99,20 @@
 
 	.home-about-container .form-group label {
 		font-weight: 600;
-		color: #2c3e50;
+		color: #374151;
 		margin-bottom: 10px;
 		font-size: 14px;
 		display: block;
 	}
 
 	.home-about-container .form-control {
-		border: 2px solid #e0e0e0;
-		border-radius: 8px; 
+		border: 2px solid #e7e5e4;
+		border-radius: 8px;
 		font-size: 14px;
 		line-height: 1.6;
 		transition: all 0.3s ease;
-		background: #ffffff;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		background: #fff;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 		width: 100%;
 	}
 
@@ -106,21 +122,22 @@
 	}
 
 	.home-about-container .form-control:focus {
-		border-color: #EEB72D;
-		box-shadow: 0 0 0 3px rgba(238, 183, 45, 0.2);
+		border-color: rgba(236, 72, 153, 0.55);
+		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.12);
 		outline: none;
 	}
 
 	.home-about-container .form-control:hover {
-		border-color: #bdbdbd;
+		border-color: #d6d3d1;
 	}
 
 	.settings-section {
-		background: #ffffff;
+		background: #fff;
 		padding: 25px;
 		border-radius: 8px;
 		margin-top: 20px;
-		border: 1px solid #e0e0e0;
+		border: 1px solid rgba(236, 72, 153, 0.15);
+		box-shadow: 0 2px 10px rgba(236, 72, 153, 0.06);
 	}
 
 	.toggle-switch-container {
@@ -128,6 +145,11 @@
 		align-items: center;
 		gap: 15px;
 		flex-wrap: wrap;
+	}
+
+	.toggle-label-text {
+		color: #6b7280;
+		font-size: 13px;
 	}
 
 	.toggle-switch {
@@ -150,7 +172,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background-color: #ccc;
+		background-color: #d6d3d1;
 		transition: 0.4s;
 		border-radius: 34px;
 		box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -170,8 +192,8 @@
 	}
 
 	.toggle-switch input:checked + .toggle-slider {
-		background: linear-gradient(135deg, #EEB72D 0%, #d4a020 100%);
-		box-shadow: 0 0 0 3px rgba(238, 183, 45, 0.25);
+		background: linear-gradient(135deg, var(--pg-pink) 0%, var(--pg-orange) 100%);
+		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.22);
 	}
 
 	.toggle-switch input:checked + .toggle-slider:before {
@@ -179,11 +201,11 @@
 	}
 
 	.toggle-switch input:focus + .toggle-slider {
-		box-shadow: 0 0 0 3px rgba(238, 183, 45, 0.3);
+		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.2);
 	}
 
 	.toggle-switch:hover .toggle-slider {
-		box-shadow: 0 0 0 3px rgba(238, 183, 45, 0.15);
+		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.12);
 	}
 
 	.toggle-status {
@@ -203,26 +225,26 @@
 	}
 
 	.toggle-status.inactive {
-		background: #f8d7da;
-		color: #721c24;
+		background: #fce7f3;
+		color: var(--pg-pink-deep);
 	}
 
 	.action-section {
 		text-align: center;
 		padding-top: 30px;
 		margin-top: 30px;
-		border-top: 2px solid #e0e0e0;
+		border-top: 1px solid rgba(236, 72, 153, 0.12);
 	}
 
 	.btn-update {
-		background: linear-gradient(135deg, #EEB72D 0%, #d4a020 100%);
+		background: linear-gradient(135deg, var(--pg-pink) 0%, var(--pg-orange) 100%);
 		border: none;
 		border-radius: 8px;
 		padding: 12px 40px;
 		font-size: 16px;
 		font-weight: 600;
-		color: #1a1a1a;
-		box-shadow: 0 4px 15px rgba(238, 183, 45, 0.35);
+		color: #fff;
+		box-shadow: 0 4px 16px rgba(236, 72, 153, 0.3);
 		transition: all 0.3s ease;
 		cursor: pointer;
 		text-transform: uppercase;
@@ -231,9 +253,9 @@
 
 	.btn-update:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 6px 20px rgba(238, 183, 45, 0.45);
-		background: linear-gradient(135deg, #d4a020 0%, #EEB72D 100%);
-		color: #1a1a1a;
+		box-shadow: 0 6px 22px rgba(236, 72, 153, 0.4);
+		background: linear-gradient(135deg, #db2777 0%, #ea580c 100%);
+		color: #fff;
 	}
 
 	.btn-update:active {
@@ -250,22 +272,24 @@
 	.bullet-point-row .btn-remove-bullet { flex-shrink: 0; }
 	#btn-add-bullet {
 		margin-top: 10px;
-		background: #2a0a1e;
-		color: #EEB72D;
-		border: 2px solid #EEB72D;
+		background: var(--pg-text);
+		color: #fff;
+		border: 2px solid rgba(236, 72, 153, 0.45);
 		border-radius: 8px;
 		padding: 8px 16px;
 		font-weight: 600;
 		transition: all 0.3s ease;
 	}
 	#btn-add-bullet:hover {
-		background: #EEB72D;
-		color: #2a0a1e;
+		background: linear-gradient(135deg, var(--pg-pink) 0%, var(--pg-orange) 100%);
+		color: #fff;
+		border-color: transparent;
 	}
 	.existing-photo {
 		border-radius: 8px;
-		border: 2px solid #e0e0e0;
+		border: 1px solid rgba(236, 72, 153, 0.15);
 		object-fit: cover;
+		box-shadow: 0 2px 10px rgba(236, 72, 153, 0.1);
 	}
 
 	@media (max-width: 768px) {
@@ -277,7 +301,7 @@
 @endpush
 
 
-<section class="content">
+<section class="content page-admin">
 	<div class="row">
 		<div class="col-md-12">
 			<form action="{{ route('page_setting.store') }}" class="form-horizontal" enctype="multipart/form-data" method="post" accept-charset="utf-8">
@@ -293,9 +317,7 @@
 						</div>
 
 						@if (session('message'))
-						<div style="background: #d4edda; border: 2px solid #28a745; border-radius: 8px; padding: 12px 16px; color: #155724; font-weight: 500; margin-bottom: 20px;">
-							{{ session('message') }}
-						</div>
+						<div class="home-about-alert">{{ session('message') }}</div>
 						@endif
 
 						<div class="section-block">
