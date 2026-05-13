@@ -119,6 +119,76 @@
 		color: #dc2626;
 	}
 
+	.video-featured-row {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+
+	.video-toggle-switch {
+		position: relative;
+		display: inline-block;
+		width: 52px;
+		height: 28px;
+		flex-shrink: 0;
+	}
+
+	.video-toggle-switch input[type="checkbox"] {
+		opacity: 0;
+		width: 0;
+		height: 0;
+		position: absolute;
+	}
+
+	.video-toggle-slider {
+		position: absolute;
+		cursor: pointer;
+		inset: 0;
+		background: #d6d3d1;
+		border-radius: 34px;
+		transition: 0.25s;
+	}
+
+	.video-toggle-slider:before {
+		content: "";
+		position: absolute;
+		height: 22px;
+		width: 22px;
+		left: 3px;
+		bottom: 3px;
+		background: #fff;
+		border-radius: 50%;
+		transition: 0.25s;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	}
+
+	.video-toggle-switch input:checked + .video-toggle-slider {
+		background: linear-gradient(135deg, var(--pg-pink) 0%, var(--pg-orange) 100%);
+	}
+
+	.video-toggle-switch input:checked + .video-toggle-slider:before {
+		transform: translateX(24px);
+	}
+
+	.video-toggle-switch input:focus + .video-toggle-slider {
+		box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.2);
+	}
+
+	.video-featured-hint {
+		font-size: 14px;
+		color: #6b7280;
+		font-weight: 500;
+	}
+
+	.video-form-container .video-featured-title {
+		font-weight: 600;
+		color: #374151;
+		margin-bottom: 10px;
+		font-size: 14px;
+		display: block;
+	}
+
 	@media (max-width: 768px) {
 		.video-form-body { padding: 20px; }
 		.video-form-container .section-banner { margin: 0 -20px 20px -20px; padding: 12px 15px; }
@@ -148,7 +218,10 @@
 						<div class="section-banner">
 							<h3>Add Video</h3>
 						</div>
-
+						<div class="form-group">
+							<label for="heading">Heading <span class="required">*</span></label>
+							<input type="text" id="heading" autocomplete="off" class="form-control" name="heading" value="{{ old('heading') }}" placeholder="Enter heading">
+						</div>
 						<div class="form-group">
 							<label for="title">Title <span class="required">*</span></label>
 							<input type="text" id="title" autocomplete="off" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter video title">
@@ -160,6 +233,21 @@
 							@error('video_url')
 								<span class="text-danger">{{ $message }}</span>
 							@enderror
+						</div>
+						@php
+							$featuredOn = old('featured', '0');
+							$featuredOn = ($featuredOn == 1 || $featuredOn === '1');
+						@endphp
+						<div class="form-group">
+							<div id="featured_field_label" class="video-featured-title">Featured <span class="required">*</span></div>
+							<div class="video-featured-row">
+								<label class="video-toggle-switch">
+									<input type="checkbox" id="featured_toggle" role="switch" aria-labelledby="featured_field_label" {{ $featuredOn ? 'checked' : '' }}>
+									<span class="video-toggle-slider" aria-hidden="true"></span>
+								</label>
+								<input type="hidden" name="featured" id="featured" value="{{ $featuredOn ? '1' : '0' }}">
+								<span class="video-featured-hint" id="featured_hint">{{ $featuredOn ? 'Yes' : 'No' }}</span>
+							</div>
 						</div>
 
 						<div class="action-section">
@@ -178,8 +266,23 @@
 @push('js')
 <script>
 	$(document).ready(function() {
+		(function () {
+			var cb = document.getElementById('featured_toggle');
+			var hidden = document.getElementById('featured');
+			var hint = document.getElementById('featured_hint');
+			if (!cb || !hidden) return;
+			function syncFeaturedToggle() {
+				hidden.value = cb.checked ? '1' : '0';
+				if (hint) hint.textContent = cb.checked ? 'Yes' : 'No';
+				cb.setAttribute('aria-checked', cb.checked ? 'true' : 'false');
+			}
+			cb.addEventListener('change', syncFeaturedToggle);
+			syncFeaturedToggle();
+		})();
+
 		$("#regform").validate({
 			rules: {
+				heading: "required",
 				title: "required",
 				video_url: "required",
 			},

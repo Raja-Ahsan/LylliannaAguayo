@@ -56,7 +56,7 @@
         <div class="hero__visual">
           <div class="hero__img-frame">
             <div class="hero__img-glow"></div>
-            <img src="https://imagedelivery.net/R3XOqFcTepHxP5M00fjeUw/8a887572-ecce-405e-e7e7-68de50b94c00/img256" alt="Volleyball player in action" width="800" height="900" loading="eager" class="hero__img">
+            <img src="{{ asset('assets/website/images/hero-img.jpg') }}" alt="Volleyball player in action" width="800" height="900" loading="eager" class="hero__img">
             <div class="hero__img-overlay"></div>
           </div>
           <div class="hero__float-card hero__float-card--digs">
@@ -185,50 +185,46 @@
           <h2 class="section-title">Highlight Videos</h2>
         </div>
         <div class="videos__grid">
-          <article class="video-card video-card--featured reveal">
-            <div class="video-card__thumb">
-              <div class="video-card__thumb-bg"></div>
-              <div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div>
-              <div class="video-card__label">Featured</div>
-            </div>
-            <div class="video-card__info">
-              <h3 class="video-card__title">2025 Season Highlight — Vol. 1</h3>
-              <p class="video-card__meta">Rio Hondo College · Women's Volleyball</p>
-              <a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3585866" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">Watch on FieldLevel</a>
-            </div>
-          </article>
-          <article class="video-card reveal">
-            <div class="video-card__thumb"><div class="video-card__thumb-bg video-card__thumb-bg--2"></div><div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div>
-            <div class="video-card__info"><h3 class="video-card__title">Match Footage — Vol. 2</h3><p class="video-card__meta">Defense &amp; Serve Receive</p><a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3549002" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">Watch →</a></div>
-          </article>
-          <article class="video-card reveal">
-            <div class="video-card__thumb"><div class="video-card__thumb-bg video-card__thumb-bg--3"></div><div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div>
-            <div class="video-card__info"><h3 class="video-card__title">Match Footage — Vol. 3</h3><p class="video-card__meta">Digs &amp; Court Coverage</p><a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546474" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">Watch →</a></div>
-          </article>
-          <article class="video-card reveal">
-            <div class="video-card__thumb"><div class="video-card__thumb-bg video-card__thumb-bg--4"></div><div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div>
-            <div class="video-card__info"><h3 class="video-card__title">Match Footage — Vol. 4</h3><p class="video-card__meta">Passing &amp; Communication</p><a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546473" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">Watch →</a></div>
-          </article>
-          <article class="video-card reveal">
-            <div class="video-card__thumb"><div class="video-card__thumb-bg video-card__thumb-bg--5"></div><div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div>
-            <div class="video-card__info"><h3 class="video-card__title">Match Footage — Vol. 5</h3><p class="video-card__meta">Serve &amp; Receive</p><a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546472" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">Watch →</a></div>
-          </article>
-          <article class="video-card reveal">
-            <div class="video-card__thumb"><div class="video-card__thumb-bg video-card__thumb-bg--6"></div><div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div>
-            <div class="video-card__info"><h3 class="video-card__title">Match Footage — Vol. 6</h3><p class="video-card__meta">Full Match</p><a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546441" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">Watch →</a></div>
-          </article>
-          <article class="video-card reveal">
-            <div class="video-card__thumb"><div class="video-card__thumb-bg video-card__thumb-bg--7"></div><div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div>
-            <div class="video-card__info"><h3 class="video-card__title">Match Footage — Vol. 7</h3><p class="video-card__meta">Defense Highlights</p><a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546432" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">Watch →</a></div>
-          </article>
-          <article class="video-card reveal">
-            <div class="video-card__thumb"><div class="video-card__thumb-bg video-card__thumb-bg--8"></div><div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div>
-            <div class="video-card__info"><h3 class="video-card__title">Match Footage — Vol. 8</h3><p class="video-card__meta">Aces &amp; Serve</p><a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546421" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">Watch →</a></div>
-          </article>
-          <article class="video-card reveal">
-            <div class="video-card__thumb"><div class="video-card__thumb-bg video-card__thumb-bg--9"></div><div class="video-card__play-wrap"><div class="video-card__play-btn"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div></div></div>
-            <div class="video-card__info"><h3 class="video-card__title">Match Footage — Vol. 9</h3><p class="video-card__meta">Season Recap</p><a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546418" target="_blank" rel="noopener noreferrer" class="btn btn--ghost btn--sm">Watch →</a></div>
-          </article>
+          @php
+            $nonFeaturedThumbIndex = 0;
+          @endphp
+          @forelse ($videos as $video)
+            @php
+              $isFeatured = (string) $video->featured === '1';
+              $thumbSrc = $video->thumbnailDisplayUrl();
+              $thumbVariant = $thumbSrc ? null : ($isFeatured ? null : (($nonFeaturedThumbIndex % 8) + 2));
+              if (! $isFeatured && ! $thumbSrc) {
+                  $nonFeaturedThumbIndex++;
+              }
+              $watchLabel = $isFeatured
+                  ? (stripos($video->video_url, 'fieldlevel.com') !== false ? 'Watch on FieldLevel' : 'Watch')
+                  : 'Watch →';
+            @endphp
+            <article class="video-card {{ $isFeatured ? 'video-card--featured' : '' }} reveal">
+              <div class="video-card__thumb">
+                <div class="video-card__thumb-bg{{ $thumbVariant ? ' video-card__thumb-bg--' . $thumbVariant : '' }}{{ $thumbSrc ? ' video-card__thumb-bg--has-thumb' : '' }}">
+                  @if ($thumbSrc)
+                    <img class="video-card__thumb-img" src="{{ $thumbSrc }}" alt="{{ $video->title }}" loading="lazy" decoding="async" width="480" height="270">
+                  @endif
+                </div>
+                <div class="video-card__play-wrap">
+                  <div class="video-card__play-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  </div>
+                </div>
+                @if ($isFeatured)
+                  <div class="video-card__label">Featured</div>
+                @endif
+              </div>
+              <div class="video-card__info">
+                <p class="video-card__title">{{ $video->heading }}</p>
+                <h3 class="video-card__meta">{{ $video->title }}</h3>
+                <a href="{{ $video->video_url }}" target="_blank" rel="noopener noreferrer" class="btn {{ $isFeatured ? 'btn--primary' : 'btn--ghost' }} btn--sm">{{ $watchLabel }}</a>
+              </div>
+            </article>
+          @empty
+            <p class="videos__empty reveal">Highlight videos will appear here once they are published in the admin.</p>
+          @endforelse
         </div>
         <div class="videos__cta reveal">
           <a href="https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">View Full FieldLevel Profile</a>

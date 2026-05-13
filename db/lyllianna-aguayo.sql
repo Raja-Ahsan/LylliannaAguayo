@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2026 at 01:36 AM
+-- Generation Time: May 06, 2026 at 01:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -304,12 +304,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (148, '2026_02_23_174600_fix_testimonials_deleted_at_column', 101),
 (149, '2022_05_18_190058_create_contact_us_table', 102),
 (150, '2026_02_23_180000_change_contact_us_message_to_text', 103),
-(151, '2026_02_24_201750_create_videos_table', 104),
 (152, '2026_02_24_201800_create_audio_table', 105),
 (153, '2026_02_24_201807_create_photo_galleries_table', 106),
 (154, '2026_02_25_174313_create_shop_contacts_table', 107),
 (157, '2026_03_05_202415_create_latest_news_table', 108),
-(159, '2026_03_11_194327_create_schedule_shop_contacts_table', 109);
+(159, '2026_03_11_194327_create_schedule_shop_contacts_table', 109),
+(160, '2026_02_24_201750_create_videos_table', 110),
+(161, '2026_05_06_000001_add_thumbnail_url_to_videos_table', 111),
+(162, '2026_05_06_120000_add_thumbnail_url_to_videos_table', 112);
 
 -- --------------------------------------------------------
 
@@ -1098,8 +1100,11 @@ INSERT INTO `users` (`id`, `name`, `last_name`, `phone`, `email`, `address`, `em
 
 CREATE TABLE `videos` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `heading` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `video_url` varchar(255) NOT NULL,
+  `thumbnail_url` varchar(500) DEFAULT NULL,
+  `featured` varchar(255) NOT NULL DEFAULT '0' COMMENT '0=not featured, 1=featured',
   `status` varchar(255) NOT NULL DEFAULT '1' COMMENT '0=inactive, 1= active',
   `deleted_at` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1110,8 +1115,16 @@ CREATE TABLE `videos` (
 -- Dumping data for table `videos`
 --
 
-INSERT INTO `videos` (`id`, `title`, `video_url`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Rio Hondo College · Women\'s Volleyball', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3585866', '1', NULL, '2026-04-29 17:32:52', '2026-04-29 18:07:50');
+INSERT INTO `videos` (`id`, `heading`, `title`, `video_url`, `thumbnail_url`, `featured`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, '2025 Season Highlight — Vol. 1', 'Rio Hondo College · Women\'s Volleyball', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3585866', 'https://i.ytimg.com/vi/bYk2sY8dBvA/mqdefault.jpg', '1', '1', NULL, '2026-05-01 12:04:10', '2026-05-05 18:02:51'),
+(3, 'Match Footage — Vol. 2', 'Defense & Serve Receive', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3549002', 'https://image.mux.com/zxZnsLN9o95WczXJDfiIpQ9vNJig3jv5fZhIWIIIvEQ/thumbnail.png', '0', '1', NULL, '2026-05-05 17:10:00', '2026-05-05 18:02:53'),
+(4, 'Match Footage — Vol. 3', 'Digs & Court Coverage', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546474', 'https://image.mux.com/7M6UaAaZe7XUQSRrFlT5DFsM8hizKTn95FeHi01mEgUI/thumbnail.png', '0', '1', NULL, '2026-05-05 17:10:37', '2026-05-05 18:02:55'),
+(5, 'Match Footage — Vol. 4', 'Passing & Communication', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546473', 'https://image.mux.com/GQBS00N0202bvNol46WAnatFqx5v00NtXCx02WWrRld2yu00M/thumbnail.png', '0', '1', NULL, '2026-05-05 17:11:25', '2026-05-05 18:02:56'),
+(6, 'Match Footage — Vol. 5', 'Serve & Receive', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546472', 'https://image.mux.com/V23xZQVMsZSSlvIfuIBkae9hoiqf00rGF6hUGUMjbHJE/thumbnail.png', '0', '1', NULL, '2026-05-05 17:12:01', '2026-05-05 18:02:57'),
+(7, 'Match Footage — Vol. 6', 'Full Match', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546441', 'https://image.mux.com/ZaqWK84BfI3AYQC3sIzetJgaVrkEon01EuoNv4bZkT00o/thumbnail.png', '0', '1', NULL, '2026-05-05 17:13:19', '2026-05-05 18:02:59'),
+(8, 'Match Footage — Vol. 7', 'Defense Highlights', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546432', 'https://image.mux.com/xZgxpIV9wWp2A5WjaoW02Nc2MUwUCxhweYsrvEcR00OLg/thumbnail.png', '0', '1', NULL, '2026-05-05 17:13:59', '2026-05-05 18:03:00'),
+(9, 'Match Footage — Vol. 8', 'Aces & Serve', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546421', 'https://image.mux.com/TNHVmpHhxjIPSHy2UlVNfEUPekNWBg0000fvmPgakJShA/thumbnail.png', '0', '1', NULL, '2026-05-05 17:15:36', '2026-05-05 18:03:01'),
+(10, 'Match Footage — Vol. 9', 'Season Recap', 'https://www.fieldlevel.com/app/profile/lyllianna.aguayo/volleyballwomen/videos/3546418', 'https://image.mux.com/IDEQNRbrS3tULHRDtQgFwwruQyOlmCZvKpBrfYP9A9A/thumbnail.png', '0', '1', NULL, '2026-05-05 17:16:32', '2026-05-05 18:03:03');
 
 -- --------------------------------------------------------
 
@@ -1547,7 +1560,7 @@ ALTER TABLE `latest_news`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1619,7 +1632,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `videos`
 --
 ALTER TABLE `videos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `web_links`

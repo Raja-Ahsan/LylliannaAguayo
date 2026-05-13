@@ -1207,6 +1207,19 @@ button {
   transition: transform 400ms var(--ease-smooth);
 }
 
+.video-card__thumb-bg--has-thumb {
+  background: #1c1917;
+}
+
+.video-card__thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .video-card__thumb-bg--2 {
   background: linear-gradient(135deg, #fef0f3 0%, #fde8ed 100%);
 }

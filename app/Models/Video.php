@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Services\VideoThumbnailResolver;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Video extends Model
 {
@@ -23,8 +25,8 @@ class Video extends Model
         if (preg_match('/[?&]v=([a-zA-Z0-9_-]{10,12})/', $url, $m)) {
             return $m[1];
         }
-        // youtube.com/embed/ID or youtu.be/ID
-        if (preg_match('#(?:youtube\.com/embed/|youtu\.be/)([a-zA-Z0-9_-]{10,12})#', $url, $m)) {
+        // youtube.com/embed/, youtu.be/, or /shorts/
+        if (preg_match('#(?:youtube\.com/embed/|youtu\.be/|youtube\.com/shorts/)([a-zA-Z0-9_-]{10,12})#', $url, $m)) {
             return $m[1];
         }
         return null;
@@ -37,5 +39,25 @@ class Video extends Model
     {
         $id = $this->youtube_video_id;
         return $id ? 'https://www.youtube.com/embed/' . $id : null;
+    }
+
+    /**
+     * Poster image for cards (admin + site): DB value after save, or cached resolve from video_url only.
+     */
+    public function thumbnailDisplayUrl(): ?string
+    {
+        $stored = trim((string) ($this->attributes['thumbnail_url'] ?? ''));
+        if ($stored !== '') {
+            return $stored;
+        }
+
+        $videoUrl = trim((string) ($this->attributes['video_url'] ?? ''));
+        if ($videoUrl === '') {
+            return null;
+        }
+
+        return Cache::remember('video_thumb_display_'.md5($videoUrl), 86400, function () use ($videoUrl) {
+            return app(VideoThumbnailResolver::class)->resolve($videoUrl);
+        });
     }
 }

@@ -309,14 +309,14 @@
 @section('content')
     <section class="content pg-dash">
         @php
-            $sliderIndex = Route::has('homeslider.index') ? route('homeslider.index') : '#';
-            $bannerIndex = Route::has('banner.index') ? route('banner.index') : '#';
-            $testimonialIndex = Route::has('testimonial.index') ? route('testimonial.index') : '#';
+            /* $sliderIndex = Route::has('homeslider.index') ? route('homeslider.index') : '#'; */
+           /*  $bannerIndex = Route::has('banner.index') ? route('banner.index') : '#'; */
+            /* $testimonialIndex = Route::has('testimonial.index') ? route('testimonial.index') : '#'; */
             $contactUsIndex = Route::has('contactus.index') ? route('contactus.index') : '#';
-            $shopContactIndex = Route::has('shopcontact.index') ? route('shopcontact.index') : '#';
-            $galleryIndex = Route::has('photogallery.index') ? route('photogallery.index') : '#';
+           /*  $shopContactIndex = Route::has('shopcontact.index') ? route('shopcontact.index') : '#'; */
+           /*  $galleryIndex = Route::has('photogallery.index') ? route('photogallery.index') : '#'; */
             $videoIndex = Route::has('video.index') ? route('video.index') : '#';
-            $audioIndex = Route::has('audio.index') ? route('audio.index') : '#';
+           /*  $audioIndex = Route::has('audio.index') ? route('audio.index') : '#'; */
         @endphp
 
         <div class="pg-dash__banner">
@@ -327,23 +327,23 @@
         </div>
 
         <div class="pg-dash__grid">
-            <a href="{{ $sliderIndex }}" class="pg-dash__card">
+            {{-- <a href="{{ $sliderIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-sliders" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $slidersTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Home Sliders</div>
-            </a>
+            </a> --}}
 
-            <a href="{{ $bannerIndex }}" class="pg-dash__card">
+            {{-- <a href="{{ $bannerIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-picture-o" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $bannersTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Banners</div>
-            </a>
+            </a> --}}
 
-            <a href="{{ $testimonialIndex }}" class="pg-dash__card">
+            {{-- <a href="{{ $testimonialIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-quote-left" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $testimonialsTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Testimonials</div>
-            </a>
+            </a> --}}
 
             <a href="{{ $contactUsIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-envelope" aria-hidden="true"></i></div>
@@ -351,11 +351,11 @@
                 <div class="pg-dash__card-label">Contact Messages</div>
             </a>
 
-            <a href="{{ $shopContactIndex }}" class="pg-dash__card">
+            {{-- <a href="{{ $shopContactIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-shopping-bag" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $shopContactTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Shop Contacts</div>
-            </a>
+            </a> --}}
 
             <a href="{{ $videoIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
@@ -363,7 +363,7 @@
                 <div class="pg-dash__card-label">Videos</div>
             </a>
 
-            <a href="{{ $audioIndex }}" class="pg-dash__card">
+            {{-- <a href="{{ $audioIndex }}" class="pg-dash__card">
                 <div class="pg-dash__card-icon brand"><i class="fa fa-music" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $audioTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Audio Tracks</div>
@@ -373,7 +373,7 @@
                 <div class="pg-dash__card-icon brand"><i class="fa fa-camera" aria-hidden="true"></i></div>
                 <div class="pg-dash__card-value">{{ $galleryTotal ?? 0 }}</div>
                 <div class="pg-dash__card-label">Photo Gallery</div>
-            </a>
+            </a> --}}
         </div>
     </section>
 @endsection

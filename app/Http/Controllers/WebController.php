@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Video;
+
 class WebController extends Controller
 {
     public function Index()
     {
         $page_title = 'Lyllianna Aguayo — Volleyball Recruitment Portfolio';
+        $videos = Video::query()
+            ->where('status', 1) 
+            ->get();
 
-        return view('website.index', compact('page_title'));
+        return view('website.index', compact('page_title', 'videos'));
     }
 
     public function Services()
